@@ -28,24 +28,34 @@
   - [x] env settings
   - [x] package install
 
-- [ ] Blog 쓰기,목록,삭제,수정
+- [x] Blog 쓰기,목록,삭제,수정
   - [x]  모델링 & entity 설계
   - [x]  DTO 및 API 설계
   - [x]  Service 로직 작성
   - [x]  Front interface 가져오기
   - [x]  Front QueryHook 정의 
 
-- [ ] Comment 쓰기,목록,삭제,수정
+- [x] Comment 쓰기,목록
   - [x]  모델링 & entity 설계
   - [x]  DTO 및 API 설계
   - [x]  Service 로직 작성
   - [x]  Front interface 가져오기
   - [x]  Front QueryHook 정의 
 
-- [ ] Project deploy
-  - [ ] setting prod env 
-  - [ ] NestJS Server PM2 clustor
-  - [ ] React Web Server PM2 clustor
+- [x] React Logic & Publish
+  - [x] PostList 
+  - [x] PostCompoent
+  - [x] CommentCompoent
+  - [x] HomePage
+  - [x] EditPage
+  - [x] DetailPage
+  - [x] NewPostPage
+
+
+- [x] Project deploy
+  - [x] setting prod env 
+  - [x] NestJS Server PM2 clustor
+  - [x] React Web Server PM2 clustor
 
 
 
