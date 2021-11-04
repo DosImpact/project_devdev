@@ -17,13 +17,16 @@
 -RSS
 
 ## Feature Todo List
-- [x] Project Setup
+- [x] Project Setup ( backend )
   - [x] nest new
   - [x] configService & env settings
   - [x] docker postgres
   - [x] docker redis
+
+- [x] Project Setup ( frontend )
   - [x] npx create-react-app --tempate=typescript client
   - [x] env settings
+  - [x] package install
 
 - [ ] Blog 쓰기,목록,삭제,수정
   - [x]  모델링 & entity 설계
@@ -39,3 +42,16 @@
   - [ ]  Front interface 가져오기
   - [ ]  Front QueryHook 정의 및 atom 정의
 
+- [ ] Project deploy
+  - [ ] setting prod env 
+  - [ ] NestJS Server PM2 clustor
+  - [ ] React Web Server PM2 clustor
+
+
+
+
+```
+yarn add axios antd-mobile immer react-helmet react-loading-skeleton react-query react-reveal react-router-dom recoil styled-breakpoints styled-components styled-reset @toast-ui/react-editor
+
+yarn add -D @types/react-router-dom @types/styled-components @types/react-helmet
+```
