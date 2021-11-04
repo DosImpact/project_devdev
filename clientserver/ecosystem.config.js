@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "react-server",
       script: "app.js",
-      instances: 8,
+      instances: 1,
       exec_mode: "cluster",
       env_production: {
         PORT: 3000,
