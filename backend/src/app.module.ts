@@ -6,6 +6,7 @@ import * as Joi from 'joi';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Post } from './blog/entities/post.entity';
 import { Comment } from './blog/entities/comment.entity';
+import { BlogModule } from './blog/blog.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { Comment } from './blog/entities/comment.entity';
       logging: false,
       entities: [Post, Comment],
     }),
+    BlogModule,
   ],
   controllers: [AppController],
   providers: [AppService],

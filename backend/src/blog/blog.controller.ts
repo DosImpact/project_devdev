@@ -1,27 +1,49 @@
-import { Controller, Delete, Get, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Version,
+} from '@nestjs/common';
+import { PostService } from './blog.service';
+import { CreatePostInput, UpdatePostInput } from './dto/mutation.dtos';
 
 @Controller('/api/posts')
 export class PostController {
-  constructor() {}
+  constructor(private readonly postService: PostService) {}
+  @Version('1')
   @Get('/:id')
-  async getPostById() {
-    return 'getPostById';
+  async getPostById(@Param('id') postId: number) {
+    return this.postService.getPostById(postId);
   }
+
+  @Version('1')
   @Get('')
   async getAllPosts() {
-    return 'getAllPosts';
+    return this.postService.getAllPosts();
   }
+  @Version('1')
   @Post('')
-  async createPost() {
-    return 'createPost';
+  async createPost(@Body() createPostInput: CreatePostInput) {
+    return this.postService.createPost(createPostInput);
   }
-  @Delete('')
-  async deletePost() {
-    return 'deletePost';
+
+  @Version('1')
+  @Delete('/:id')
+  async deletePost(@Param('id') postId: number) {
+    return this.postService.deletePost(postId);
   }
-  @Patch('')
-  async updatePost() {
-    return 'updatePost';
+
+  @Version('1')
+  @Patch('/:id')
+  async updatePost(
+    @Param('id') postId: number,
+    @Body() updatePostInput: UpdatePostInput,
+  ) {
+    return this.postService.updatePost(postId, updatePostInput);
   }
 }
 

@@ -10,11 +10,11 @@ export class CreatePostInput {
   content: string;
 }
 export class CreatePostOutput extends CoreOutput {
-  posts: Post;
+  post?: Post;
 }
 
 export class DeletePostOutput extends CoreOutput {
-  posts: Post;
+  post?: Post;
 }
 
 export class UpdatePostInput {
@@ -25,5 +25,5 @@ export class UpdatePostInput {
   content: string;
 }
 export class UpdatePostOutput extends CoreOutput {
-  posts: Post;
+  post?: Post;
 }

@@ -28,7 +28,7 @@
 - [ ] Blog 쓰기,목록,삭제,수정
   - [x]  모델링 & entity 설계
   - [x]  DTO 및 API 설계
-  - [ ]  Service 로직 작성
+  - [x]  Service 로직 작성
   - [ ]  Front interface 가져오기
   - [ ]  Front QueryHook 정의 및 atom 정의
 
