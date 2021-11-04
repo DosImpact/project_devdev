@@ -5,14 +5,23 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
   VersionColumn,
 } from 'typeorm';
+import { Comment } from './comment.entity';
 
 @Entity({ name: 'post' })
 export class Post extends CoreEntity {
   @IsString()
+  @Column()
+  title: string;
+
+  @IsString()
   @Column({ type: 'text' })
   content: string;
+
+  @OneToMany(() => Comment, (comment) => comment.post)
+  comments: Comment[];
 }

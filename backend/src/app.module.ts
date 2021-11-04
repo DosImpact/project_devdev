@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Post } from './blog/entities/post.entity';
+import { Comment } from './blog/entities/comment.entity';
 
 @Module({
   imports: [
@@ -28,7 +30,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       }),
       synchronize: process.env.NODE_ENV === 'production' ? false : true,
       logging: false,
-      entities: [],
+      entities: [Post, Comment],
     }),
   ],
   controllers: [AppController],
