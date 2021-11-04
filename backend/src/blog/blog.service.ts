@@ -2,6 +2,8 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import {
+  CreateCommentInput,
+  CreateCommentOutput,
   CreatePostInput,
   CreatePostOutput,
   DeletePostOutput,
@@ -21,14 +23,20 @@ export class PostService {
 
   async getPostById(postId: number): Promise<GetPostByIdOutput> {
     try {
-      const post = await this.postRepo.findOneOrFail({ where: { id: postId } });
+      const post = await this.postRepo.findOneOrFail({
+        where: { id: postId },
+        relations: ['comments'],
+      });
       return { ok: true, post };
     } catch (error) {
       throw new NotFoundException();
     }
   }
   async getAllPosts(): Promise<GetAllPostsOutput> {
-    const posts = await this.postRepo.find({ order: { createAt: 'DESC' } });
+    const posts = await this.postRepo.find({
+      order: { createAt: 'DESC' },
+      relations: ['comments'],
+    });
     return { ok: true, posts };
   }
   async createPost({
@@ -70,5 +78,20 @@ export class CommentService {
   constructor(
     @InjectRepository(Comment)
     private readonly commentRepo: Repository<Comment>,
+    private readonly postService: PostService,
   ) {}
+
+  async createComment(
+    postId: number,
+    { content }: CreateCommentInput,
+  ): Promise<CreateCommentOutput> {
+    const { post } = await this.postService.getPostById(postId);
+    if (post) {
+      const comment = await this.commentRepo.save(
+        this.commentRepo.create({ content, postId: post.id }),
+      );
+      return { ok: true, comment };
+    }
+    throw new NotFoundException();
+  }
 }

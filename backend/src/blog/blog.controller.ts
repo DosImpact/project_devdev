@@ -8,12 +8,19 @@ import {
   Post,
   Version,
 } from '@nestjs/common';
-import { PostService } from './blog.service';
-import { CreatePostInput, UpdatePostInput } from './dto/mutation.dtos';
+import { CommentService, PostService } from './blog.service';
+import {
+  CreateCommentInput,
+  CreatePostInput,
+  UpdatePostInput,
+} from './dto/mutation.dtos';
 
 @Controller('/api/posts')
 export class PostController {
-  constructor(private readonly postService: PostService) {}
+  constructor(
+    private readonly postService: PostService,
+    private readonly commentService: CommentService,
+  ) {}
   @Version('1')
   @Get('/:id')
   async getPostById(@Param('id') postId: number) {
@@ -25,6 +32,16 @@ export class PostController {
   async getAllPosts() {
     return this.postService.getAllPosts();
   }
+
+  @Version('1')
+  @Post('/:id/comment')
+  async createComment(
+    @Param('id') postId: number,
+    @Body() createCommentInput: CreateCommentInput,
+  ) {
+    return this.commentService.createComment(postId, createCommentInput);
+  }
+
   @Version('1')
   @Post('')
   async createPost(@Body() createPostInput: CreatePostInput) {
@@ -48,6 +65,4 @@ export class PostController {
 }
 
 @Controller('/api/comments')
-export class CommentController {
-  constructor() {}
-}
+export class CommentController {}
