@@ -62,7 +62,7 @@ export default createGlobalStyle`
         padding: 6px;
         box-sizing: border-box;
         font-size: 11px;
-        border-radius: 2px;
+        /* border-radius: 2px; */
         background-color: rgb(76, 175, 80);
         text-align: center;
         z-index: 1000;
@@ -86,12 +86,12 @@ export default createGlobalStyle`
     /* Track */
     ::-webkit-scrollbar-track {
         background: #f1f1f1;
-        border-radius: 0.5rem;
+        /* border-radius: 0.5rem; */
     }
     /* Handle */
     ::-webkit-scrollbar-thumb {
         background: #aaa;
-        border-radius: 0.5rem;
+        /* border-radius: 0.5rem; */
     }
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
@@ -114,7 +114,7 @@ export default createGlobalStyle`
         height: 20px;
         cursor: pointer;
         border: 1px solid #C4C4C4;
-        border-radius: 3px;
+        /* border-radius: 3px; */
         margin-right:1rem;
     }
     input[type="checkbox"]:checked + label span.checkbox {
@@ -123,13 +123,13 @@ export default createGlobalStyle`
     /* input css reset */
     input[type="text"],input[type="password"] {
         border:unset;
-        border-radius: 0.9rem;
+        /* border-radius: 0.9rem; */
         width: 100%;
         height: 4.6rem;
         font-size: 1.3rem;
         padding: 1.5rem 2.8rem;
         background: rgba(255, 255, 255, 0.53);
-        border-radius: 9px;
+        /* border-radius: 9px; */
     }
     input[type="text"].gray{    background: "#ECECEC";}
     input[type="text"].disable{    background: rgba(255, 255, 255, 0.53);}
@@ -151,7 +151,7 @@ export default createGlobalStyle`
     
         cursor:pointer;
         border:unset;
-        border-radius: 9px;
+        /* border-radius: 9px; */
         /* border: ${(props) => props.theme.Border}; */
 
         width: 100%;

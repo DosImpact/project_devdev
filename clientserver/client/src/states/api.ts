@@ -21,9 +21,9 @@ export const blogApi = {
   },
   PATCH: {
     updatePost: (postId: number, body: UpdatePostInput) =>
-      axios.post(`posts/${postId}`, body),
+      axios.patch(`posts/${postId}`, body),
   },
   DELETE: {
-    deletePost: (postId: number) => axios.post(`posts/${postId}`),
+    deletePost: (postId: number) => axios.delete(`posts/${postId}`),
   },
 };

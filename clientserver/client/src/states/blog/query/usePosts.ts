@@ -2,7 +2,6 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { useQuery } from 'react-query';
 import { GetAllPostsOutput } from '../interface/query.dtos';
 import { blogApi } from '../../api';
-import { Post } from '../interface/post.entity';
 
 const usePosts = () => {
   const postsQuery = useQuery<
